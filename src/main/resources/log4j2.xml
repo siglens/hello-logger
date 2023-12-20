@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
     <Appenders>
-        <Console name="console" target="SYSTEM_OUT">
-            <JSONLayout>
-              <KeyValuePair key="index" value="testing"/>
-            </JSONLayout>
-        </Console>
         <Http name="http" url="http://localhost:8081/splunk/services/collector/event">
           <JsonLayout properties="true">
-              <KeyValuePair key="index" value="testing"/>
+              <KeyValuePair key="index" value="default"/>
           </JsonLayout>
         </Http>
     </Appenders>
 
     <Loggers>
         <Root level="trace">
-            <AppenderRef ref="console" />
             <AppenderRef ref="http" />
         </Root>
     </Loggers>
